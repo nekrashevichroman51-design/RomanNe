@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // 1. АВТОМАТИЧЕСКИЙ ВВОД В СТРОКУ ПОИСКА GOOGLE
-    const textToType = "День добрый. Меня зовут Некрашевич Роман Викторович. Я начинающий разработчик.";
+    // Теперь здесь выводится только ваше ФИО, чтобы текст идеально сидел в строке
+    const textToType = "Некрашевич Роман Викторович";
     const searchInput = document.getElementById("search-input");
     let charIndex = 0;
 
@@ -10,15 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
             searchInput.value += textToType.charAt(charIndex);
             charIndex++;
             
-            // Важно: автоматически прокручиваем текст вправо внутри инпута, 
-            // чтобы имя и отчество не обрезались и всегда оставались в фокусе
+            // Автоматическая прокрутка вправо (на случай очень узких экранов)
             searchInput.scrollLeft = searchInput.scrollWidth;
             
-            setTimeout(typeText, 50); 
+            // Скорость печати одного символа (в миллисекундах)
+            setTimeout(typeText, 60); 
         }
     }
 
-    // Запуск анимации печати
+    // Запуск анимации печати через 600 мс после загрузки страницы
     setTimeout(typeText, 600);
 
 
@@ -39,13 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
         "[STATUS] Системы работают стабильно. Ошибок: 0."
     ];
 
-    function addLogLine() {
+    function addLogLine(customLine = null) {
         const p = document.createElement("p");
-        let randomLine = logTemplates[Math.floor(Math.random() * logTemplates.length)];
+        let randomLine = customLine ? customLine : logTemplates[Math.floor(Math.random() * logTemplates.length)];
         
         if (randomLine.includes("[SUCCESS]")) {
             p.innerHTML = `<span class="term-success">${randomLine}</span>`;
-        } else if (randomLine.includes("[WARN]")) {
+        } else if (randomLine.includes("[WARN]") || randomLine.includes("[ACTION]")) {
             p.innerHTML = `<span class="term-warn">${randomLine}</span>`;
         } else {
             p.textContent = randomLine;
@@ -58,10 +59,36 @@ document.addEventListener("DOMContentLoaded", () => {
             terminal.removeChild(terminal.firstChild);
         }
 
-        setTimeout(addLogLine, Math.random() * 1200 + 400);
+        if (!customLine) {
+            setTimeout(addLogLine, Math.random() * 1200 + 400);
+        }
     }
 
     addLogLine();
+
+
+    // 3. ЛОГИКА ТРАНСФОРМАЦИИ СТРАНИЦЫ (ПОИСКОВАЯ ВЫДАЧА)
+    const searchBtn = document.getElementById("search-btn");
+    const container = document.getElementById("main-container");
+    const buttonsPanel = document.getElementById("buttons-panel");
+    const resultsWrapper = document.getElementById("results-wrapper");
+
+    function executeSearch() {
+        container.classList.add("searched");
+        buttonsPanel.style.display = "none";
+        resultsWrapper.style.display = "block";
+
+        addLogLine("[ACTION] Зафиксирован поисковый запрос пользователя. Доступ разрешен.");
+        addLogLine("[SUCCESS] База данных проектов Романа успешно считана.");
+    }
+
+    searchBtn.addEventListener("click", executeSearch);
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            executeSearch();
+        }
+    });
 
     document.getElementById("lucky-btn").addEventListener("click", () => {
         alert("Роман Викторович уже здесь, вам точно повезло!");
