@@ -15,9 +15,9 @@
             --border-glow: rgba(255, 255, 255, 0.06);
             --text-pure: #f3f4f6;
             --text-muted: #9ca3af;
-            --accent-emerald: #10b981; /* Сочный изумрудный */
-            --accent-lime: #a3e635;    /* Лайм для кнопок и акцентов */
-            --accent-cyan: #06b6d4;    /* Кибер-циан */
+            --accent-emerald: #10b981;
+            --accent-lime: #a3e635;
+            --accent-cyan: #06b6d4;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -26,80 +26,67 @@
             background-color: var(--bg-deep);
             color: var(--text-pure);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.5;
         }
-        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
         
-        /* Размытые неоновые сферы на фоне (Glow Effects) */
-        .glow { position: absolute; width: 450px; height: 450px; border-radius: 50%; filter: blur(130px); z-index: -1; opacity: 0.12; }
-        .glow--1 { top: -100px; right: -50px; background: var(--accent-emerald); }
-        .glow--2 { top: 700px; left: -100px; background: var(--accent-cyan); }
+        .glow { position: absolute; width: 300px; height: 300px; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.12; }
+        .glow--1 { top: -50px; right: -50px; background: var(--accent-emerald); }
+        .glow--2 { top: 500px; left: -100px; background: var(--accent-cyan); }
 
-        /* Шапка в стиле Glassmorphism */
-        .header { position: sticky; top: 0; z-index: 1000; background: rgba(5, 9, 20, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-glow); }
-        .header__container { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
-        .header__logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px; }
+        .header { position: sticky; top: 0; z-index: 1000; background: rgba(5, 9, 20, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-glow); }
+        .header__container { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; }
+        .header__logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 700; }
         .header__logo span { color: var(--accent-emerald); }
-        .header__link { color: var(--text-muted); text-decoration: none; margin-left: 28px; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
-        .header__link:hover { color: var(--text-pure); }
-        .header__link--cta { background: rgba(16, 185, 129, 0.1); padding: 8px 16px; border-radius: 6px; color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
-        .header__link--cta:hover { background: var(--accent-emerald); color: var(--bg-deep); border-color: transparent; }
+        .header__link { color: var(--text-muted); text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 500; }
+        .header__link--cta { background: rgba(16, 185, 129, 0.1); padding: 6px 12px; border-radius: 6px; color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
 
-        /* Главный экран */
-        .hero { padding: 130px 0 80px 0; text-align: center; }
-        .hero__badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.15); color: #34d399; padding: 6px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
-        .hero__pulse { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #10b981; }
-        .hero__title { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 24px; letter-spacing: -1px; background: linear-gradient(to bottom right, #ffffff, #9ca3af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero__subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 40px auto; }
-        .hero__subtitle strong { color: white; }
-        .hero__actions { display: flex; justify-content: center; gap: 16px; }
+        .hero { padding: 60px 0 40px 0; text-align: center; }
+        .hero__badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.15); color: #34d399; padding: 4px 12px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; margin-bottom: 16px; }
+        .hero__pulse { width: 6px; height: 6px; background-color: #10b981; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #10b981; }
+        .hero__title { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px; background: linear-gradient(to bottom right, #ffffff, #9ca3af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero__subtitle { font-size: 1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 28px auto; }
+        .hero__actions { display: flex; flex-direction: column; gap: 10px; max-width: 280px; margin: 0 auto; }
 
-        /* Кнопки */
-        .btn { padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: inline-block; text-align: center; }
-        .btn--accent { background: linear-gradient(135deg, var(--accent-emerald), var(--accent-lime)); color: #022c16; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2); }
-        .btn--accent:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4); }
+        .btn { padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s ease; text-align: center; width: 100%; }
+        .btn--accent { background: linear-gradient(135deg, var(--accent-emerald), var(--accent-lime)); color: #022c16; }
         .btn--blur { background: rgba(255, 255, 255, 0.02); color: white; border: 1px solid var(--border-glow); }
-        .btn--blur:hover { background: rgba(255, 255, 255, 0.06); transform: translateY(-2px); }
 
-        /* Разделы */
-        .section-padding { padding: 90px 0; border-top: 1px solid var(--border-glow); }
-        .section-tag { color: var(--accent-emerald); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px; text-align: center; }
-        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.25rem; text-align: center; margin-bottom: 48px; }
+        /* Оптимизированные уменьшенные отступы для мобильных */
+        .section-padding { padding: 40px 0; border-top: 1px solid var(--border-glow); }
+        .section-tag { color: var(--accent-emerald); font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 6px; text-align: center; }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; text-align: center; margin-bottom: 24px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-        .card { background: var(--surface-glass); border: 1px solid var(--border-glow); padding: 36px; border-radius: 16px; position: relative; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .card:hover { transform: translateY(-4px); border-color: rgba(16, 185, 129, 0.25); background: rgba(255, 255, 255, 0.02); }
+        .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        .card { background: var(--surface-glass); border: 1px solid var(--border-glow); padding: 24px; border-radius: 12px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         
-        /* Маркеры для карточек ИТ-знаний */
-        .card__badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; background: rgba(255,255,255,0.03); color: var(--text-muted); border: 1px solid var(--border-glow); }
-        .card__badge--core { background: rgba(16, 185, 129, 0.1); color: #34d399; border-color: rgba(16, 185, 129, 0.15); }
-        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; margin-bottom: 12px; font-weight: 700; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-        .card__link { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; transition: color 0.2s; }
-        .card__link:hover { color: var(--accent-emerald); }
+        .card__badge { display: inline-block; font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; margin-bottom: 12px; background: rgba(16, 185, 129, 0.1); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.15); }
+        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 8px; font-weight: 700; }
+        .card p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+        .card__link { color: #34d399; text-decoration: none; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; margin-top: 16px; }
 
-        /* Списки технологий внутри карточек знаний */
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-        .tech-tag { font-size: 0.75rem; font-weight: 600; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glow); padding: 4px 10px; border-radius: 6px; color: var(--text-muted); }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .tech-tag { font-size: 0.7rem; font-weight: 600; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glow); padding: 2px 8px; border-radius: 4px; color: var(--text-muted); }
 
-        /* Подвал */
-        .footer { padding-bottom: 100px; }
-        .footer__card { background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%); border: 1px solid var(--border-glow); padding: 50px 24px; border-radius: 20px; text-align: center; backdrop-filter: blur(12px); }
-        .footer__card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 12px; }
-        .footer__card p { color: var(--text-muted); max-width: 480px; margin: 0 auto 32px auto; font-size: 0.95rem; }
-        .footer__actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-        .footer__btn { padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s; font-size: 0.95rem; }
+        .footer { padding-bottom: 60px; }
+        .footer__card { background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%); border: 1px solid var(--border-glow); padding: 32px 16px; border-radius: 16px; text-align: center; }
+        .footer__card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; margin-bottom: 8px; }
+        .footer__card p { color: var(--text-muted); margin-bottom: 24px; font-size: 0.85rem; }
+        .footer__actions { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+        .footer__btn { padding: 12px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; text-align: center; }
         .footer__btn--mail { background: white; color: var(--bg-deep); }
-        .footer__btn--mail:hover { opacity: 0.9; transform: translateY(-1px); }
         .footer__btn--tg { background: rgba(255, 255, 255, 0.03); color: white; border: 1px solid var(--border-glow); }
-        .footer__btn--tg:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-1px); }
 
-        @media (max-width: 768px) {
-            .header__nav { display: none; }
-            .hero__title { font-size: 2.25rem; }
-            .hero__actions { flex-direction: column; gap: 12px; }
-            .btn { width: 100%; }
-            .footer__actions { flex-direction: column; width: 100%; }
+        /* Настройка для больших экранов */
+        @media (min-width: 768px) {
+            .hero__title { font-size: 3.5rem; }
+            .hero__subtitle { font-size: 1.15rem; }
+            .hero__actions { flex-direction: row; max-width: 100%; }
+            .btn { width: auto; }
+            .grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+            .section-title { font-size: 2.25rem; }
+            .footer__actions { flex-direction: row; justify-content: center; }
+            .footer__btn { width: auto; }
         }
     </style>
 </head>
@@ -120,7 +107,6 @@
     </header>
 
     <main>
-        <!-- ГЛАВНЫЙ ЭКРАН (Junior Позиционирование) -->
         <section id="about" class="hero">
             <div class="container">
                 <div class="hero__badge"><span class="hero__pulse"></span> Junior Frontend Developer</div>
@@ -133,7 +119,27 @@
             </div>
         </section>
 
-        <!-- БЛОК АКТУАЛЬНЫХ ИТ-ЗНАНИЙ -->
         <section id="skills" class="container section-padding">
             <span class="section-tag">Стек технологий</span>
             <h2 class="section-title">База знаний для производства</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card__badge">Frontend Core</div>
+                    <h3>Интерфейсные технологии</h3>
+                    <p>Прочная база адаптивной верстки. Свободное построение сеток на Flexbox и Grid. Семантический HTML5 для правильного SEO. Работа со скриптами JavaScript: управление DOM, обработка событий, асинхронное взаимодействие (Fetch, Async/Await).</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript ES6+</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__badge">Industrial Tools</div>
+                    <h3>Инструменты разработки</h3>
+                    <p>Профессиональный контроль версий проектов в системе Git и публикация репозиториев на хостинге GitHub. Сборка легких и быстрых сайтов на Vite, работа с дизайн-системами в Figma и верстка по БЭМ-архитектуре.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Git / GitHub</span>
+                        <span class="tech-tag">БЭМ</span>
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Vite</span>
+                    </div>
