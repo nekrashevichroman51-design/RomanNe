@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Роман Некрашевич | Junior Frontend Developer</title>
+    <title>Roman Nekrashevich | Junior Frontend Developer</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -52,7 +52,6 @@
         .btn--accent { background: linear-gradient(135deg, var(--accent-emerald), var(--accent-lime)); color: #022c16; }
         .btn--blur { background: rgba(255, 255, 255, 0.02); color: white; border: 1px solid var(--border-glow); }
 
-        /* Оптимизированные уменьшенные отступы для мобильных */
         .section-padding { padding: 40px 0; border-top: 1px solid var(--border-glow); }
         .section-tag { color: var(--accent-emerald); font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; display: block; margin-bottom: 6px; text-align: center; }
         .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; text-align: center; margin-bottom: 24px; }
@@ -68,16 +67,42 @@
         .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
         .tech-tag { font-size: 0.7rem; font-weight: 600; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glow); padding: 2px 8px; border-radius: 4px; color: var(--text-muted); }
 
+        /* НОВАЯ КРАСИВАЯ СЕКЦИЯ КОНТАКТОВ (FOOTER) */
         .footer { padding-bottom: 60px; }
-        .footer__card { background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%); border: 1px solid var(--border-glow); padding: 32px 16px; border-radius: 16px; text-align: center; }
-        .footer__card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; margin-bottom: 8px; }
-        .footer__card p { color: var(--text-muted); margin-bottom: 24px; font-size: 0.85rem; }
-        .footer__actions { display: flex; flex-direction: column; gap: 10px; width: 100%; }
-        .footer__btn { padding: 12px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; text-align: center; }
-        .footer__btn--mail { background: white; color: var(--bg-deep); }
-        .footer__btn--tg { background: rgba(255, 255, 255, 0.03); color: white; border: 1px solid var(--border-glow); }
+        .footer__card { 
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, rgba(6, 182, 212, 0.02) 100%); 
+            border: 1px solid var(--border-glow); 
+            padding: 40px 20px; 
+            border-radius: 20px; 
+            text-align: center; 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .footer__card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; margin-bottom: 8px; font-weight: 700; }
+        .footer__card p { color: var(--text-muted); margin-bottom: 32px; font-size: 0.9rem; }
+        
+        /* Профессиональные High-Tech карты каналов связи */
+        .footer__grid { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 400px; margin: 0 auto; }
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-glow);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .contact-item:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.02);
+            transform: translateY(-2px);
+        }
+        .contact-item__label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-emerald); font-weight: 700; margin-bottom: 6px; }
+        .contact-item__value { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; color: var(--text-pure); font-weight: 600; }
 
-        /* Настройка для больших экранов */
         @media (min-width: 768px) {
             .hero__title { font-size: 3.5rem; }
             .hero__subtitle { font-size: 1.15rem; }
@@ -85,8 +110,10 @@
             .btn { width: auto; }
             .grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
             .section-title { font-size: 2.25rem; }
-            .footer__actions { flex-direction: row; justify-content: center; }
-            .footer__btn { width: auto; }
+            .footer__card { padding: 50px 40px; }
+            .footer__card h2 { font-size: 2.25rem; }
+            .footer__grid { grid-template-columns: 1fr 1fr; max-width: 680px; gap: 20px; }
+            .contact-item { padding: 24px; }
         }
     </style>
 </head>
@@ -128,18 +155,3 @@
                     <h3>Интерфейсные технологии</h3>
                     <p>Прочная база адаптивной верстки. Свободное построение сеток на Flexbox и Grid. Семантический HTML5 для правильного SEO. Работа со скриптами JavaScript: управление DOM, обработка событий, асинхронное взаимодействие (Fetch, Async/Await).</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript ES6+</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card__badge">Industrial Tools</div>
-                    <h3>Инструменты разработки</h3>
-                    <p>Профессиональный контроль версий проектов в системе Git и публикация репозиториев на хостинге GitHub. Сборка легких и быстрых сайтов на Vite, работа с дизайн-системами в Figma и верстка по БЭМ-архитектуре.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Git / GitHub</span>
-                        <span class="tech-tag">БЭМ</span>
-                        <span class="tech-tag">Figma</span>
-                        <span class="tech-tag">Vite</span>
-                    </div>
