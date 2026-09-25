@@ -1,27 +1,61 @@
+/* Переменные для смены тем (Светлая по умолчанию) */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #202124;
+    --card-bg: #f8f9fa;
+    --card-border: #e0e0e0;
+    --search-border: #dfe1e5;
+    --search-text: #202124;
+    --btn-bg: #f8f9fa;
+    --btn-text: #3c4043;
+    --btn-border: #f8f9fa;
+    --link-color: #1a0dab;
+    --snippet-color: #4d5156;
+    --border-bottom: #f1f3f4;
+}
+
+/* Переменные для ТЕМНОГО РЕЖИМА */
+[data-theme="dark"] {
+    --bg-color: #202124;
+    --text-color: #e8eaed;
+    --card-bg: #303134;
+    --card-border: #3c4043;
+    --search-border: #5f6368;
+    --search-text: #ffffff;
+    --btn-bg: #303134;
+    --btn-text: #e8eaed;
+    --btn-border: #5f6368;
+    --link-color: #8ab4f8;
+    --snippet-color: #bdc1c6;
+    --border-bottom: #3c4043;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     overflow: hidden;
     padding: 20px;
 }
 
-/* ВЕРХНЯЯ ШАПКА В СТИЛЕ GOOGLE */
+/* ШАПКА */
 .google-top-bar {
     display: flex;
     align-items: center;
     gap: 30px;
     width: 100%;
     padding-bottom: 25px;
-    border-bottom: 1px solid #f1f3f4;
+    border-bottom: 1px solid var(--border-bottom);
 }
 
 .google-logo {
@@ -41,23 +75,21 @@ body {
     align-items: center;
     gap: 15px;
     flex: 1;
-    max-width: 900px;
+    max-width: 850px;
 }
 
 .search-box {
     display: flex;
     align-items: center;
     flex: 1;
-    border: 1px solid #dfe1e5;
+    border: 1px solid var(--search-border);
     padding: 10px 18px;
     border-radius: 24px;
-    background: #fff;
-    transition: box-shadow 0.2s;
+    background: var(--bg-color);
 }
 
 .search-box:hover {
     box-shadow: 0 1px 6px rgba(32,33,36,0.28);
-    border-color: rgba(223,225,229,0);
 }
 
 #search-input {
@@ -65,7 +97,8 @@ body {
     border: none;
     outline: none;
     font-size: 16px;
-    color: #202124;
+    background: transparent;
+    color: var(--search-text);
     padding: 0 10px;
 }
 
@@ -74,30 +107,34 @@ body {
     user-select: none;
 }
 
-.search-buttons {
-    display: flex;
-    gap: 8px;
-}
+.search-buttons { display: flex; gap: 8px; }
 
 .btn {
-    background-color: #f8f9fa;
-    border: 1px solid #f8f9fa;
+    background-color: var(--btn-bg);
+    border: 1px solid var(--btn-border);
     border-radius: 4px;
-    color: #3c4043;
+    color: var(--btn-text);
     font-size: 13px;
     padding: 9px 14px;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.1s;
 }
 
 .btn:hover {
     border: 1px solid #dadce0;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    color: #202124;
 }
 
-/* НИЖНИЙ ГЛАВНЫЙ БЛОК НА ТРИ КОЛОНКИ */
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    user-select: none;
+}
+
+/* СЕТКА СТРАНИЦЫ */
 .main-content-layout {
     display: flex;
     justify-content: space-between;
@@ -107,7 +144,7 @@ body {
     height: calc(100vh - 120px);
 }
 
-/* ЛЕВАЯ КОЛОНКА (НАВЫКИ / КОНТАКТЫ) */
+/* ЛЕВАЯ КОЛОНКА */
 .sidebar-left {
     width: 25%;
     display: flex;
@@ -115,20 +152,18 @@ body {
     gap: 20px;
     overflow-y: auto;
 }
-
 .sidebar-left::-webkit-scrollbar { width: 4px; }
 .sidebar-left::-webkit-scrollbar-thumb { background: #dadce0; border-radius: 4px; }
 
 .card-section {
-    background: #f8f9fa;
-    border: 1px solid #e0e0e0;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 8px;
     padding: 20px;
 }
 
 .card-section h2 {
     font-size: 16px;
-    color: #202124;
     margin-bottom: 12px;
     border-bottom: 2px solid #1a73e8;
     padding-bottom: 5px;
@@ -137,19 +172,14 @@ body {
 .skill-category { margin-bottom: 12px; }
 .skill-category h3 { font-size: 13px; color: #1a73e8; margin-bottom: 4px; }
 .skills-list, .contacts-list { list-style: none; }
-.skills-list li { padding: 4px 0; color: #4a4a4a; font-size: 13px; line-height: 1.4; }
-
-/* Стандартные маркеры */
+.skills-list li { padding: 4px 0; font-size: 13px; line-height: 1.4; opacity: 0.9; }
 .skills-list li::before { content: "▪ "; color: #34a853; font-weight: bold; }
-
-/* Фиолетовые маркеры специально для дизайна (стиль Figma) */
 .skills-list.design-skills li::before { color: #a259ff; }
-
 .contacts-list li { font-size: 13px; margin-bottom: 8px; word-break: break-all; }
 .contacts-list a { color: #1a73e8; text-decoration: none; }
 .contacts-list a:hover { text-decoration: underline; }
 
-/* ЦЕНТРАЛЬНАЯ КОЛОНКА (ВЫДАЧА) */
+/* ЦЕНТРАЛЬНАЯ КОЛОНКА */
 .google-results-container {
     width: 48%;
     display: flex;
@@ -157,42 +187,31 @@ body {
     overflow-y: auto;
     padding-right: 10px;
 }
-
 .google-results-container::-webkit-scrollbar { width: 4px; }
 .google-results-container::-webkit-scrollbar-thumb { background: #dadce0; border-radius: 4px; }
 
 .search-placeholder {
-    background: #f8f9fa;
+    background: var(--card-bg);
     border: 1px dashed #1a73e8;
     border-radius: 8px;
     padding: 30px;
-    color: #5f6368;
+    color: var(--snippet-color);
     font-size: 15px;
     text-align: center;
     line-height: 1.6;
     margin-top: 10px;
 }
 
-.results-wrapper {
-    display: none;
-}
-
-.search-stats {
-    font-size: 13px;
-    color: #70757a;
-    margin-bottom: 15px;
-}
-
+.results-wrapper { display: none; }
+.search-stats { font-size: 13px; color: #70757a; margin-bottom: 15px; }
 .search-result-item { margin-bottom: 22px; }
-.result-url { display: block; font-size: 12px; color: #202124; margin-bottom: 2px; }
-.result-title { font-size: 18px; color: #1a0dab; text-decoration: none; display: inline-block; margin-bottom: 4px; }
+.result-url { display: block; font-size: 12px; margin-bottom: 2px; opacity: 0.8; }
+.result-title { font-size: 18px; color: var(--link-color); text-decoration: none; display: inline-block; margin-bottom: 4px; }
 .result-title:hover { text-decoration: underline; }
-.result-snippet { font-size: 13px; color: #4d5156; line-height: 1.5; }
+.result-snippet { font-size: 13px; color: var(--snippet-color); line-height: 1.5; }
 
-/* ПРАВАЯ КОЛОНКА (ТЕРМИНАЛ) */
-.sidebar-right {
-    width: 25%;
-}
+/* ПРАВАЯ КОЛОНКА — КИБЕР-ТЕРМИНАЛ (НЕОН) */
+.sidebar-right { width: 25%; }
 
 .terminal {
     background-color: #0d1117;
@@ -200,8 +219,16 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     border: 1px solid #30363d;
+    /* Зеленое неоновое свечение */
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.2), inset 0 0 10px rgba(57, 255, 20, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Фиолетовое неоновое свечение при включении темного режима */
+[data-theme="dark"] .terminal {
+    box-shadow: 0 0 20px rgba(162, 89, 255, 0.25), inset 0 0 10px rgba(162, 89, 255, 0.05);
+    border-color: #44335c;
 }
 
 .terminal-header {
@@ -212,7 +239,6 @@ body {
     gap: 6px;
     border-bottom: 1px solid #30363d;
 }
-
 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 .red { background-color: #ff5f56; }
 .yellow { background-color: #ffbd2e; }
@@ -229,10 +255,14 @@ body {
     line-height: 1.4;
 }
 
+/* Подсветка текста терминала в темном режиме */
+[data-theme="dark"] .terminal-body {
+    color: #b380ff; /* Неоново-фиолетовый лог для эстетики */
+}
+
 .term-success { color: #58a6ff; }
 .term-warn { color: #d29922; }
 
-/* Адаптивность */
 @media (max-width: 1100px) {
     body { overflow-y: auto; height: auto; }
     .google-top-bar { flex-direction: column; gap: 15px; align-items: flex-start; }
