@@ -71,20 +71,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.key === "Enter") executeSearch();
     });
 
-    // 4. ИСПРАВЛЕННОЕ ИНТЕРАКТИВНОЕ ПЕРЕКЛЮЧЕНИЕ ТЕМЫ (Работает в обе стороны)
+    // 4. НАДЕЖНОЕ ПЕРЕКЛЮЧЕНИЕ ТЕМЫ ЧЕРЕЗ CLASSLIST.TOGGLE
     const themeToggle = document.getElementById("theme-toggle");
     themeToggle.addEventListener("click", () => {
-        // Проверяем, есть ли СЕЙЧАС у тега <html> атрибут data-theme со значением dark
-        const hasDarkTheme = document.documentElement.getAttribute("data-theme") === "dark";
+        document.body.classList.toggle("dark-theme");
         
-        if (hasDarkTheme) {
-            // Если темная тема активна — удаляем её атрибут (возвращается светлая тема)
-            document.documentElement.removeAttribute("data-theme");
-            addLogLine("[ACTION] Включена светлая тема интерфейса.");
-        } else {
-            // Если темной темы нет — добавляем её
-            document.documentElement.setAttribute("data-theme", "dark");
+        if (document.body.classList.contains("dark-theme")) {
             addLogLine("[ACTION] Включен ночной режим (Dark Mode).");
+        } else {
+            addLogLine("[ACTION] Включена светлая тема интерфейса.");
         }
     });
 
