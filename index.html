@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Роман Некрашевич | Senior Frontend Engineer & Web Developer</title>
+    <title>Роман Некрашевич | Junior Frontend Developer</title>
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-deep: #030712;
-            --surface-glass: rgba(17, 24, 39, 0.7);
-            --border-glow: rgba(255, 255, 255, 0.08);
-            --text-pure: #f9fafb;
+            --bg-deep: #050914;
+            --surface-glass: rgba(13, 20, 38, 0.7);
+            --border-glow: rgba(255, 255, 255, 0.06);
+            --text-pure: #f3f4f6;
             --text-muted: #9ca3af;
-            --accent-indigo: #6366f1;
-            --accent-cyan: #06b6d4;
-            --accent-emerald: #10b981;
+            --accent-emerald: #10b981; /* Сочный изумрудный */
+            --accent-lime: #a3e635;    /* Лайм для кнопок и акцентов */
+            --accent-cyan: #06b6d4;    /* Кибер-циан */
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -28,74 +28,78 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
         
-        .glow { position: absolute; width: 500px; height: 500px; border-radius: 50%; filter: blur(150px); z-index: -1; opacity: 0.15; }
-        .glow--1 { top: -150px; right: -50px; background: var(--accent-indigo); }
-        .glow--2 { top: 800px; left: -150px; background: var(--accent-cyan); }
+        /* Размытые неоновые сферы на фоне (Glow Effects) */
+        .glow { position: absolute; width: 450px; height: 450px; border-radius: 50%; filter: blur(130px); z-index: -1; opacity: 0.12; }
+        .glow--1 { top: -100px; right: -50px; background: var(--accent-emerald); }
+        .glow--2 { top: 700px; left: -100px; background: var(--accent-cyan); }
 
-        .header { position: sticky; top: 0; z-index: 1000; background: rgba(3, 7, 18, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-glow); }
+        /* Шапка в стиле Glassmorphism */
+        .header { position: sticky; top: 0; z-index: 1000; background: rgba(5, 9, 20, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-glow); }
         .header__container { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
-        .header__logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px; }
-        .header__logo span { color: var(--accent-indigo); }
-        .header__link { color: var(--text-muted); text-decoration: none; margin-left: 32px; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+        .header__logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px; }
+        .header__logo span { color: var(--accent-emerald); }
+        .header__link { color: var(--text-muted); text-decoration: none; margin-left: 28px; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
         .header__link:hover { color: var(--text-pure); }
-        .header__link--cta { background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan)); padding: 10px 20px; border-radius: 8px; color: white; }
+        .header__link--cta { background: rgba(16, 185, 129, 0.1); padding: 8px 16px; border-radius: 6px; color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .header__link--cta:hover { background: var(--accent-emerald); color: var(--bg-deep); border-color: transparent; }
 
-        .hero { padding: 120px 0 80px 0; text-align: center; }
-        .hero__badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 6px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; margin-bottom: 28px; }
-        .hero__pulse { width: 8px; height: 8px; background-color: #34d399; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #34d399; }
-        .hero__title { font-family: 'Space Grotesk', sans-serif; font-size: 3.8rem; font-weight: 800; line-height: 1.15; margin-bottom: 24px; letter-spacing: -1.5px; background: linear-gradient(to bottom right, #ffffff 30%, #9ca3af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero__subtitle { font-size: 1.2rem; color: var(--text-muted); max-width: 720px; margin: 0 auto 40px auto; }
+        /* Главный экран */
+        .hero { padding: 130px 0 80px 0; text-align: center; }
+        .hero__badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.15); color: #34d399; padding: 6px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; }
+        .hero__pulse { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #10b981; }
+        .hero__title { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 24px; letter-spacing: -1px; background: linear-gradient(to bottom right, #ffffff, #9ca3af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero__subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 40px auto; }
         .hero__subtitle strong { color: white; }
         .hero__actions { display: flex; justify-content: center; gap: 16px; }
 
-        .btn { padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: inline-block; text-align: center; }
-        .btn--accent { background: var(--accent-indigo); color: white; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25); }
-        .btn--accent:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(99, 102, 241, 0.45); }
-        .btn--blur { background: rgba(255, 255, 255, 0.03); color: white; border: 1px solid var(--border-glow); }
-        .btn--blur:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-2px); }
+        /* Кнопки */
+        .btn { padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: inline-block; text-align: center; }
+        .btn--accent { background: linear-gradient(135deg, var(--accent-emerald), var(--accent-lime)); color: #022c16; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2); }
+        .btn--accent:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4); }
+        .btn--blur { background: rgba(255, 255, 255, 0.02); color: white; border: 1px solid var(--border-glow); }
+        .btn--blur:hover { background: rgba(255, 255, 255, 0.06); transform: translateY(-2px); }
 
+        /* Разделы */
         .section-padding { padding: 90px 0; border-top: 1px solid var(--border-glow); }
-        .section-tag { color: var(--accent-indigo); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px; text-align: center; }
-        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
+        .section-tag { color: var(--accent-emerald); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px; text-align: center; }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.25rem; text-align: center; margin-bottom: 48px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
-        .card { background: var(--surface-glass); border: 1px solid var(--border-glow); padding: 40px; border-radius: 20px; position: relative; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .card:hover { transform: translateY(-6px); border-color: rgba(99, 102, 241, 0.3); background: rgba(255, 255, 255, 0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .card { background: var(--surface-glass); border: 1px solid var(--border-glow); padding: 36px; border-radius: 16px; position: relative; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .card:hover { transform: translateY(-4px); border-color: rgba(16, 185, 129, 0.25); background: rgba(255, 255, 255, 0.02); }
         
-        .card__meta { font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-        .card__meta--emerald { color: var(--accent-emerald); }
-        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 12px; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; }
-        .card__link { color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; }
-        .card__link:hover { color: var(--accent-indigo); }
+        /* Маркеры для карточек ИТ-знаний */
+        .card__badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; background: rgba(255,255,255,0.03); color: var(--text-muted); border: 1px solid var(--border-glow); }
+        .card__badge--core { background: rgba(16, 185, 129, 0.1); color: #34d399; border-color: rgba(16, 185, 129, 0.15); }
+        .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; margin-bottom: 12px; font-weight: 700; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+        .card__link { color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; transition: color 0.2s; }
+        .card__link:hover { color: var(--accent-emerald); }
 
-        /* Оформление опыта работы и развернутых компетенций */
-        .experience-box { background: var(--surface-glass); border: 1px solid var(--border-glow); border-radius: 20px; padding: 40px; margin-top: 30px; }
-        .experience-box__header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--border-glow); padding-bottom: 16px; flex-wrap: wrap; gap: 10px; }
-        .experience-box__title h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; color: #fff; }
-        .experience-box__title p { color: var(--accent-indigo); font-weight: 600; font-size: 0.95rem; margin-top: 2px; }
-        .experience-box__date { background: rgba(255,255,255,0.04); padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
-        .experience-box__text { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
+        /* Списки технологий внутри карточек знаний */
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        .tech-tag { font-size: 0.75rem; font-weight: 600; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glow); padding: 4px 10px; border-radius: 6px; color: var(--text-muted); }
 
+        /* Подвал */
         .footer { padding-bottom: 100px; }
-        .footer__card { background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%); border: 1px solid var(--border-glow); padding: 60px; border-radius: 24px; text-align: center; backdrop-filter: blur(12px); }
-        .footer__card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.25rem; margin-bottom: 16px; }
-        .footer__card p { color: var(--text-muted); max-width: 500px; margin: 0 auto 32px auto; }
-        .footer__actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        .footer__btn { padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s; }
+        .footer__card { background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%); border: 1px solid var(--border-glow); padding: 50px 24px; border-radius: 20px; text-align: center; backdrop-filter: blur(12px); }
+        .footer__card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 12px; }
+        .footer__card p { color: var(--text-muted); max-width: 480px; margin: 0 auto 32px auto; font-size: 0.95rem; }
+        .footer__actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+        .footer__btn { padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s; font-size: 0.95rem; }
         .footer__btn--mail { background: white; color: var(--bg-deep); }
-        .footer__btn--tg { background: rgba(255, 255, 255, 0.04); color: white; border: 1px solid var(--border-glow); }
-        .footer__btn--tg:hover { background: rgba(255, 255, 255, 0.1); }
+        .footer__btn--mail:hover { opacity: 0.9; transform: translateY(-1px); }
+        .footer__btn--tg { background: rgba(255, 255, 255, 0.03); color: white; border: 1px solid var(--border-glow); }
+        .footer__btn--tg:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-1px); }
 
         @media (max-width: 768px) {
             .header__nav { display: none; }
-            .hero__title { font-size: 2.5rem; }
+            .hero__title { font-size: 2.25rem; }
             .hero__actions { flex-direction: column; gap: 12px; }
             .btn { width: 100%; }
             .footer__actions { flex-direction: column; width: 100%; }
-            .experience-box__header { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -107,32 +111,29 @@
         <div class="container header__container">
             <div class="header__logo">Roman Nekrashevich<span>.dev</span></div>
             <nav class="header__nav">
-                <a href="#about" class="header__link">Инфо</a>
-                <a href="#skills" class="header__link">Стек</a>
-                <a href="#projects" class="header__link">Портфолио</a>
-                <a href="#experience" class="header__link">Опыт</a>
+                <a href="#about" class="header__link">Старт</a>
+                <a href="#skills" class="header__link">Знания</a>
+                <a href="#projects" class="header__link">Проекты</a>
                 <a href="#contacts" class="header__link header__link--cta">Контакты</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- ГЛАВНЫЙ ЭКРАН -->
+        <!-- ГЛАВНЫЙ ЭКРАН (Junior Позиционирование) -->
         <section id="about" class="hero">
             <div class="container">
-                <div class="hero__badge"><span class="hero__pulse"></span> Доступен для крупных ИТ-продуктов</div>
-                <h1 class="hero__title">Инженерия цифровых веб-интерфейсов</h1>
-                <p class="hero__subtitle">Я <strong>Роман Некрашевич</strong>. Специализируюсь на создании высокопроизводительных адаптивных решений, объединяя передовой стек программирования, строгую бизнес-логику и безупречную семантику кодовой базы.</p>
+                <div class="hero__badge"><span class="hero__pulse"></span> Junior Frontend Developer</div>
+                <h1 class="hero__title">Разработка веб-интерфейсов</h1>
+                <p class="hero__subtitle">Привет, я <strong>Роман Некрашевич</strong>. Начинающий фронтенд-инженер. Фокусируюсь на создании адаптивных, быстрых сайтов с чистым кодом и современным дизайном по стандартам ИТ-индустрии.</p>
                 <div class="hero__actions">
-                    <a href="#projects" class="btn btn--accent">Смотреть кейсы</a>
-                    <a href="#contacts" class="btn btn--blur">Обсудить проект</a>
+                    <a href="#projects" class="btn btn--accent">Смотреть проекты</a>
+                    <a href="#contacts" class="btn btn--blur">Связаться со мной</a>
                 </div>
             </div>
         </section>
 
-        <!-- РАЗДЕЛ ТЕХНИЧЕСКИХ КОМПЕТЕНЦИЙ -->
+        <!-- БЛОК АКТУАЛЬНЫХ ИТ-ЗНАНИЙ -->
         <section id="skills" class="container section-padding">
-            <span class="section-tag">ENGINEERING</span>
-            <h2 class="section-title">Технические компетенции</h2>
-            <div class="grid">
-                <div class="card">
+            <span class="section-tag">Стек технологий</span>
+            <h2 class="section-title">База знаний для производства</h2>
