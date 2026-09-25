@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "[SUCCESS] Рендеринг Pixel-Perfect сетки выполнен.",
         "[WARN] Зафиксирована высокая концентрация чистого кода.",
         "[PROCESS] Деплой проекта Nekrashevich-Portfolio...",
-        "[INFO] Проверка статуса: Telegram @RV11111111 активен.",
+        "[INFO] Проверка статуса: Telegram @RV11111111 active.",
         "[STATUS] Системы работают стабильно. Ошибок: 0."
     ];
 
@@ -71,14 +71,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.key === "Enter") executeSearch();
     });
 
-    // 4. ИНТЕРАКТИВНОЕ ПЕРЕКЛЮЧЕНИЕ ТЕМЫ
+    // 4. ИСПРАВЛЕННОЕ ИНТЕРАКТИВНОЕ ПЕРЕКЛЮЧЕНИЕ ТЕМЫ (Работает в обе стороны)
     const themeToggle = document.getElementById("theme-toggle");
     themeToggle.addEventListener("click", () => {
-        const currentTheme = document.documentElement.getAttribute("data-theme");
-        if (currentTheme === "dark") {
+        // Проверяем, есть ли СЕЙЧАС у тега <html> атрибут data-theme со значением dark
+        const hasDarkTheme = document.documentElement.getAttribute("data-theme") === "dark";
+        
+        if (hasDarkTheme) {
+            // Если темная тема активна — удаляем её атрибут (возвращается светлая тема)
             document.documentElement.removeAttribute("data-theme");
             addLogLine("[ACTION] Включена светлая тема интерфейса.");
         } else {
+            // Если темной темы нет — добавляем её
             document.documentElement.setAttribute("data-theme", "dark");
             addLogLine("[ACTION] Включен ночной режим (Dark Mode).");
         }
