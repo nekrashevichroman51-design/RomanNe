@@ -1,5 +1,5 @@
-/* Переменные для смены тем (Светлая по умолчанию) */
-:root {
+/* Базовые цвета для светлой темы (по умолчанию) */
+body {
     --bg-color: #ffffff;
     --text-color: #202124;
     --card-bg: #f8f9fa;
@@ -14,8 +14,8 @@
     --border-bottom: #f1f3f4;
 }
 
-/* Переменные для ТЕМНОГО РЕЖИМА */
-[data-theme="dark"] {
+/* Цвета для темной темы — активируются классом .dark-theme */
+body.dark-theme {
     --bg-color: #202124;
     --text-color: #e8eaed;
     --card-bg: #303134;
@@ -35,7 +35,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 body {
@@ -210,7 +210,7 @@ body {
 .result-title:hover { text-decoration: underline; }
 .result-snippet { font-size: 13px; color: var(--snippet-color); line-height: 1.5; }
 
-/* ПРАВАЯ КОЛОНКА — КИБЕР-ТЕРМИНАЛ (НЕОН) */
+/* ПРАВАЯ КОЛОНКА — КИБЕР-ТЕРМИНАЛ */
 .sidebar-right { width: 25%; }
 
 .terminal {
@@ -220,13 +220,12 @@ body {
     display: flex;
     flex-direction: column;
     border: 1px solid #30363d;
-    /* Зеленое неоновое свечение */
     box-shadow: 0 0 15px rgba(57, 255, 20, 0.2), inset 0 0 10px rgba(57, 255, 20, 0.05);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Фиолетовое неоновое свечение при включении темного режима */
-[data-theme="dark"] .terminal {
+/* Фиолетовое неоновое свечение в темном режиме */
+body.dark-theme .terminal {
     box-shadow: 0 0 20px rgba(162, 89, 255, 0.25), inset 0 0 10px rgba(162, 89, 255, 0.05);
     border-color: #44335c;
 }
@@ -253,11 +252,12 @@ body {
     overflow-y: auto;
     flex: 1;
     line-height: 1.4;
+    transition: color 0.3s ease;
 }
 
-/* Подсветка текста терминала в темном режиме */
-[data-theme="dark"] .terminal-body {
-    color: #b380ff; /* Неоново-фиолетовый лог для эстетики */
+/* Неоново-фиолетовый лог в темном режиме */
+body.dark-theme .terminal-body {
+    color: #b380ff;
 }
 
 .term-success { color: #58a6ff; }
