@@ -137,8 +137,14 @@ body {
 .skill-category { margin-bottom: 12px; }
 .skill-category h3 { font-size: 13px; color: #1a73e8; margin-bottom: 4px; }
 .skills-list, .contacts-list { list-style: none; }
-.skills-list li { padding: 3px 0; color: #4a4a4a; font-size: 13px; line-height: 1.4; }
+.skills-list li { padding: 4px 0; color: #4a4a4a; font-size: 13px; line-height: 1.4; }
+
+/* Стандартные маркеры */
 .skills-list li::before { content: "▪ "; color: #34a853; font-weight: bold; }
+
+/* Фиолетовые маркеры специально для дизайна (стиль Figma) */
+.skills-list.design-skills li::before { color: #a259ff; }
+
 .contacts-list li { font-size: 13px; margin-bottom: 8px; word-break: break-all; }
 .contacts-list a { color: #1a73e8; text-decoration: none; }
 .contacts-list a:hover { text-decoration: underline; }
@@ -168,7 +174,7 @@ body {
 }
 
 .results-wrapper {
-    display: none; /* Открывается через JS */
+    display: none;
 }
 
 .search-stats {
@@ -226,7 +232,7 @@ body {
 .term-success { color: #58a6ff; }
 .term-warn { color: #d29922; }
 
-/* Адаптивность для планшетов и мобильных */
+/* Адаптивность */
 @media (max-width: 1100px) {
     body { overflow-y: auto; height: auto; }
     .google-top-bar { flex-direction: column; gap: 15px; align-items: flex-start; }
