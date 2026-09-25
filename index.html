@@ -8,41 +8,8 @@
 </head>
 <body>
 
-    <!-- ЛЕВАЯ ПАНЕЛЬ: Детальные навыки и контакты -->
-    <aside class="sidebar-left">
-        <div class="card-section">
-            <h2>Технические навыки</h2>
-            
-            <div class="skill-category">
-                <h3>Frontend Core</h3>
-                <ul class="skills-list">
-                    <li><strong>HTML5 / CSS3:</strong> Семантическая верстка, Flexbox, Grid Layout.</li>
-                    <li><strong>JavaScript (ES6+):</strong> Работа с DOM, промисы, асинхронные запросы (Fetch API).</li>
-                    <li><strong>Адаптивность:</strong> Mobile First, кроссбраузерность, анимации.</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3>Инструменты & Окружение</h3>
-                <ul class="skills-list">
-                    <li><strong>Системы контроля версий:</strong> Git, работа с репозиториями на GitHub.</li>
-                    <li><strong>Сборка & Пакеты:</strong> Базовый NPM, понимание Vite / Webpack.</li>
-                    <li><strong>Оптимизация:</strong> Валидация кода, минификация ресурсов, SEO-оптимизация.</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="card-section">
-            <h2>Контакты</h2>
-            <ul class="contacts-list">
-                <li><strong>Telegram:</strong> <a href="https://t.me" target="_blank">@RV11111111</a></li>
-                <li><strong>Email:</strong> <a href="mailto:Nekrashevichroman51@gmail.com">Nekrashevichroman51@gmail.com</a></li>
-            </ul>
-        </div>
-    </aside>
-
-    <!-- ЦЕНТР: Поисковик в стиле Google + Выдача результатов -->
-    <main class="google-container" id="main-container">
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ: Логотип и строка поиска во всю ширину -->
+    <header class="google-top-bar">
         <div class="google-logo" id="logo">
             <span class="g-blue">G</span>
             <span class="g-red">o</span>
@@ -52,63 +19,104 @@
             <span class="g-red">e</span>
         </div>
         
-        <div class="search-box">
-            <div class="search-icon">🔍</div>
-            <input type="text" id="search-input" readonly>
-            <div class="mic-icon">🎙️</div>
-        </div>
-
-        <div class="search-buttons" id="buttons-panel">
-            <button class="btn" id="search-btn">Поиск в Google</button>
-            <button class="btn" id="lucky-btn">Мне повезёт!</button>
-        </div>
-
-        <!-- БЛОК РЕЗУЛЬТАТОВ ПОИСКА (Изначально скрыт) -->
-        <div class="results-wrapper" id="results-wrapper">
-            <p class="search-stats">Результатов: примерно 4 (за 0.22 сек)</p>
+        <div class="search-box-wrapper">
+            <div class="search-box">
+                <div class="search-icon">🔍</div>
+                <input type="text" id="search-input" readonly>
+                <div class="mic-icon">🎙️</div>
+            </div>
             
-            <!-- Проект 1 -->
-            <div class="search-result-item">
-                <span class="result-url">https://github.com</span>
-                <a href="#" class="result-title">Интерактивный список задач (To-Do App) на чистом JavaScript</a>
-                <p class="result-snippet">Адаптивное приложение для планирования задач. Реализовано динамическое добавление, удаление и фильтрация элементов, а также сохранение данных в LocalStorage браузера.</p>
-            </div>
-
-            <!-- Проект 2 -->
-            <div class="search-result-item">
-                <span class="result-url">https://github.com</span>
-                <a href="#" class="result-title">Адаптивный лендинг современной кофейни "CoffeeTime"</a>
-                <p class="result-snippet">Коммерческая посадочная страница с использованием продвинутых CSS Grid/Flexbox технологий. Оптимизирована под мобильные экраны, интегрирована CSS-анимация элементов.</p>
-            </div>
-
-            <!-- Проект 3 -->
-            <div class="search-result-item">
-                <span class="result-url">https://github.com</span>
-                <a href="#" class="result-title">Веб-калькулятор со сложными математическими функциями</a>
-                <p class="result-snippet">Веб-интерфейс калькулятора. Отличная демонстрация работы с обработчиками событий JavaScript, валидацией вводимых строк и алгоритмами вычислений.</p>
-            </div>
-
-            <!-- Проект 4 -->
-            <div class="search-result-item">
-                <span class="result-url">https://github.com</span>
-                <a href="#" class="result-title">Каталог кинофильмов с динамическим поиском и фильтрами</a>
-                <p class="result-snippet">Фронтенд-проект с рендерингом данных из JSON-массива. Реализована "живая" строка поиска по названиям и фильтрация по жанрам без перезагрузки страницы.</p>
+            <div class="search-buttons" id="buttons-panel">
+                <button class="btn" id="search-btn">Поиск</button>
+                <button class="btn" id="lucky-btn">Мне повезёт!</button>
             </div>
         </div>
-    </main>
+    </header>
 
-    <!-- СПРАВА: Топ-программинг интеграция (Кибер-терминал) -->
-    <aside class="sidebar-right">
-        <div class="terminal">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-                <span class="terminal-title">roman_nekrashevich_core.sh</span>
+    <!-- НИЖНЯЯ ЧАСТЬ: Разделение на 3 колонки -->
+    <div class="main-content-layout">
+        
+        <!-- КОЛОНКА 1: Навыки и контакты (Слева) -->
+        <aside class="sidebar-left">
+            <div class="card-section">
+                <h2>Технические навыки</h2>
+                <div class="skill-category">
+                    <h3>Frontend Core</h3>
+                    <ul class="skills-list">
+                        <li><strong>HTML5 / CSS3:</strong> Семантическая верстка, Flexbox, Grid.</li>
+                        <li><strong>JavaScript (ES6+):</strong> DOM, асинхронный код, события.</li>
+                        <li><strong>Адаптивность:</strong> Mobile First, кроссбраузерность.</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Инструменты</h3>
+                    <ul class="skills-list">
+                        <li><strong>Контроль версий:</strong> Git & GitHub.</li>
+                        <li><strong>Сборка:</strong> NPM, базовый Vite / Webpack.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="terminal-body" id="terminal-content"></div>
-        </div>
-    </aside>
+            
+            <div class="card-section">
+                <h2>Контакты</h2>
+                <ul class="contacts-list">
+                    <li><strong>Telegram:</strong> <a href="https://t.me" target="_blank">@RV11111111</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:Nekrashevichroman51@gmail.com">Nekrashevichroman51@gmail.com</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- КОЛОНКА 2: Выдача проектов (Центр) -->
+        <main class="google-results-container">
+            <!-- Информационная заглушка до нажатия кнопки Поиск -->
+            <div class="search-placeholder" id="search-placeholder">
+                <p>Нажмите <strong>«Поиск»</strong> или клавишу <strong>Enter</strong>, чтобы увидеть список разработанных проектов Романа Викторовича.</p>
+            </div>
+
+            <!-- БЛОК РЕЗУЛЬТАТОВ ПОИСКА (Изначально скрыт) -->
+            <div class="results-wrapper" id="results-wrapper">
+                <p class="search-stats">Результатов: примерно 4 (за 0.22 сек)</p>
+                
+                <div class="search-result-item">
+                    <span class="result-url">https://github.com</span>
+                    <a href="#" class="result-title">Интерактивный список задач (To-Do App) на JavaScript</a>
+                    <p class="result-snippet">Адаптивное приложение для планирования задач. Динамическое добавление, удаление и фильтрация элементов, сохранение данных в LocalStorage.</p>
+                </div>
+
+                <div class="search-result-item">
+                    <span class="result-url">https://github.com</span>
+                    <a href="#" class="result-title">Адаптивный лендинг современной кофейни "CoffeeTime"</a>
+                    <p class="result-snippet">Коммерческая посадочная страница с использованием CSS Grid/Flexbox технологий. Полная оптимизация под мобильные экраны и CSS-анимация.</p>
+                </div>
+
+                <div class="search-result-item">
+                    <span class="result-url">https://github.com</span>
+                    <a href="#" class="result-title">Веб-калькулятор со сложными математическими функциями</a>
+                    <p class="result-snippet">Интерфейс калькулятора. Демонстрация работы с обработчиками событий JS, валидацией строк и алгоритмами вычислений.</p>
+                </div>
+
+                <div class="search-result-item">
+                    <span class="result-url">https://github.com</span>
+                    <a href="#" class="result-title">Каталог кинофильмов с динамическим поиском и фильтрами</a>
+                    <p class="result-snippet">Фронтенд-проект с рендерингом данных из JSON-массива. Реализована "живая" строка поиска без перезагрузки всей страницы.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- КОЛОНКА 3: Кибер-терминал (Справа) -->
+        <aside class="sidebar-right">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">roman_nekrashevich_core.sh</span>
+                </div>
+                <div class="terminal-body" id="terminal-content"></div>
+            </div>
+        </aside>
+
+    </div>
 
     <script src="script.js"></script>
 </body>
