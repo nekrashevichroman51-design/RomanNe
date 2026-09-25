@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. АВТОМАТИЧЕСКИЙ ВВОД В СТРОКУ ПОИСКА GOOGLE
-    // Теперь здесь выводится только ваше ФИО, чтобы текст идеально сидел в строке
+    // 1. АВТОМАТИЧЕСКИЙ ВВОД ФИО В СТРОКУ ПОИСКА
     const textToType = "Некрашевич Роман Викторович";
     const searchInput = document.getElementById("search-input");
     let charIndex = 0;
@@ -10,20 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (charIndex < textToType.length) {
             searchInput.value += textToType.charAt(charIndex);
             charIndex++;
-            
-            // Автоматическая прокрутка вправо (на случай очень узких экранов)
             searchInput.scrollLeft = searchInput.scrollWidth;
-            
-            // Скорость печати одного символа (в миллисекундах)
             setTimeout(typeText, 60); 
         }
     }
 
-    // Запуск анимации печати через 600 мс после загрузки страницы
-    setTimeout(typeText, 600);
+    setTimeout(typeText, 500);
 
 
-    // 2. ИНТЕГРАЦИЯ ТОП-ПРОГРАММИРОВАНИЯ (Логи терминала)
+    // 2. РАБОТА ТЕРМИНАЛА (ТОП-ПРОГРАММИРОВАНИЕ)
     const terminal = document.getElementById("terminal-content");
     
     const logTemplates = [
@@ -67,19 +61,19 @@ document.addEventListener("DOMContentLoaded", () => {
     addLogLine();
 
 
-    // 3. ЛОГИКА ТРАНСФОРМАЦИИ СТРАНИЦЫ (ПОИСКОВАЯ ВЫДАЧА)
+    // 3. ОТКРЫТИЕ РЕЗУЛЬТАТОВ ПОИСКА ПРИ КЛИКЕ ИЛИ ENTER
     const searchBtn = document.getElementById("search-btn");
-    const container = document.getElementById("main-container");
-    const buttonsPanel = document.getElementById("buttons-panel");
+    const placeholder = document.getElementById("search-placeholder");
     const resultsWrapper = document.getElementById("results-wrapper");
 
     function executeSearch() {
-        container.classList.add("searched");
-        buttonsPanel.style.display = "none";
+        // Скрываем заглушку и открываем результаты в центральной колонке
+        placeholder.style.display = "none";
         resultsWrapper.style.display = "block";
 
-        addLogLine("[ACTION] Зафиксирован поисковый запрос пользователя. Доступ разрешен.");
-        addLogLine("[SUCCESS] База данных проектов Романа успешно считана.");
+        // Добавляем логи реакции системы в терминал
+        addLogLine("[ACTION] Запрос '" + textToType + "' обработан сервером.");
+        addLogLine("[SUCCESS] Сгенерировано 4 релевантных фронтенд-проекта.");
     }
 
     searchBtn.addEventListener("click", executeSearch);
