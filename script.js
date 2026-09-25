@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. АВТОМАТИЧЕСКИЙ ВВОД ФИО В СТРОКУ ПОИСКА
+    // 1. АВТОМАТИЧЕСКИЙ ВВОД В СТРОКУ ПОИСКА
     const textToType = "Некрашевич Роман Викторович";
     const searchInput = document.getElementById("search-input");
     let charIndex = 0;
@@ -13,24 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(typeText, 60); 
         }
     }
-
     setTimeout(typeText, 500);
 
-
-    // 2. РАБОТА ТЕРМИНАЛА (ТОП-ПРОГРАММИРОВАНИЕ)
+    // 2. РАБОТА ТЕРМИНАЛА
     const terminal = document.getElementById("terminal-content");
-    
     const logTemplates = [
         "[INFO] Инициализация ядра системы Роман-НВ...",
         "[SUCCESS] Подключение к глобальной сети верифицировано.",
         "[PROCESS] Компиляция модулей HTML5/CSS3/JS...",
         "[OPTIMIZE] Сжатие бандлов кода завершено на 100%.",
-        "[INFO] Запуск ИИ-ассистента для оптимизации UX/UI...",
-        "[SUCCESS] Модуль адаптивности успешно развернут.",
-        "[WARN] Обнаружена высокая концентрация чистого кода.",
-        "[PROCESS] Деплой проекта Nekrashevich-Portfolio на продакшен...",
+        "[INFO] Импорт Figma UI-Kit компонентов...",
+        "[SUCCESS] Рендеринг Pixel-Perfect сетки выполнен.",
+        "[WARN] Зафиксирована высокая концентрация чистого кода.",
+        "[PROCESS] Деплой проекта Nekrashevich-Portfolio...",
         "[INFO] Проверка статуса: Telegram @RV11111111 активен.",
-        "[INFO] Очистка кэша сборщика Webpack...",
         "[STATUS] Системы работают стабильно. Ошибок: 0."
     ];
 
@@ -57,30 +53,34 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(addLogLine, Math.random() * 1200 + 400);
         }
     }
-
     addLogLine();
 
-
-    // 3. ОТКРЫТИЕ РЕЗУЛЬТАТОВ ПОИСКА ПРИ КЛИКЕ ИЛИ ENTER
+    // 3. ОТКРЫТИЕ РЕЗУЛЬТАТОВ ПОИСКА
     const searchBtn = document.getElementById("search-btn");
     const placeholder = document.getElementById("search-placeholder");
     const resultsWrapper = document.getElementById("results-wrapper");
 
     function executeSearch() {
-        // Скрываем заглушку и открываем результаты в центральной колонке
         placeholder.style.display = "none";
         resultsWrapper.style.display = "block";
-
-        // Добавляем логи реакции системы в терминал
-        addLogLine("[ACTION] Запрос '" + textToType + "' обработан сервером.");
-        addLogLine("[SUCCESS] Сгенерировано 4 релевантных фронтенд-проекта.");
+        addLogLine("[ACTION] Запрос '" + textToType + "' успешно выполнен.");
     }
 
     searchBtn.addEventListener("click", executeSearch);
-
     document.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            executeSearch();
+        if (event.key === "Enter") executeSearch();
+    });
+
+    // 4. ИНТЕРАКТИВНОЕ ПЕРЕКЛЮЧЕНИЕ ТЕМЫ
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        if (currentTheme === "dark") {
+            document.documentElement.removeAttribute("data-theme");
+            addLogLine("[ACTION] Включена светлая тема интерфейса.");
+        } else {
+            document.documentElement.setAttribute("data-theme", "dark");
+            addLogLine("[ACTION] Включен ночной режим (Dark Mode).");
         }
     });
 
