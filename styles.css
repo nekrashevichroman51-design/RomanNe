@@ -22,11 +22,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    overflow-y: auto; /* Добавили скролл, если контента много */
+    overflow-y: auto;
     padding-right: 5px;
 }
 
-/* Стилизация скроллбара для левой панели */
 .sidebar-left::-webkit-scrollbar {
     width: 4px;
 }
@@ -96,10 +95,18 @@ body {
 /* ЦЕНТРАЛЬНЫЙ БЛОК GOOGLE */
 .google-container {
     width: 46%;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center; /* Центрирование при старте */
+    transition: all 0.5s ease-in-out;
+}
+
+/* Класс, который JS добавит контейнеру после клика на "Поиск" */
+.google-container.searched {
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .google-logo {
@@ -108,6 +115,14 @@ body {
     letter-spacing: -2px;
     margin-bottom: 30px;
     user-select: none;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Логотип уменьшается и сдвигается */
+.google-container.searched #logo {
+    font-size: 32px;
+    margin-bottom: 15px;
+    align-self: flex-start;
 }
 
 .g-blue { color: #4285F4; }
@@ -119,7 +134,7 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 680px; /* Увеличили ширину строки под длинный текст */
+    max-width: 680px;
     border: 1px solid #dfe1e5;
     padding: 12px 15px;
     border-radius: 24px;
@@ -136,10 +151,10 @@ body {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 15px; /* Чуть уменьшили размер, чтобы текст помещался */
+    font-size: 15px;
     color: #202124;
     padding: 0 10px;
-    overflow-x: auto; /* Позволяет тексту двигаться, если он не влезает */
+    overflow-x: auto;
 }
 
 .search-icon, .mic-icon {
@@ -152,6 +167,7 @@ body {
     margin-top: 25px;
     display: flex;
     gap: 12px;
+    transition: opacity 0.3s ease;
 }
 
 .btn {
@@ -169,6 +185,60 @@ body {
     border: 1px solid #dadce0;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     color: #202124;
+}
+
+/* СТИЛИ ДЛЯ РЕЗУЛЬТАТОВ ПОИСКА */
+.results-wrapper {
+    width: 100%;
+    margin-top: 30px;
+    text-align: left;
+    display: none; /* Скрыто по умолчанию */
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 10px;
+}
+
+.results-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+.results-wrapper::-webkit-scrollbar-thumb {
+    background: #dadce0;
+    border-radius: 4px;
+}
+
+.search-stats {
+    font-size: 13px;
+    color: #70757a;
+    margin-bottom: 20px;
+}
+
+.search-result-item {
+    margin-bottom: 25px;
+}
+
+.result-url {
+    display: block;
+    font-size: 12px;
+    color: #202124;
+    margin-bottom: 4px;
+}
+
+.result-title {
+    font-size: 19px;
+    color: #1a0dab;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.result-title:hover {
+    text-decoration: underline;
+}
+
+.result-snippet {
+    font-size: 14px;
+    color: #4d5156;
+    line-height: 1.5;
 }
 
 /* ПРАВАЯ ПАНЕЛЬ (ТЕРМИНАЛ) */
@@ -240,7 +310,10 @@ body {
         width: 100%;
         height: auto;
     }
-    .sidebar-left {
+    .google-container {
         height: auto;
+    }
+    .google-container.searched #logo {
+        align-self: center;
     }
 }
