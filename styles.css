@@ -1,4 +1,3 @@
-/* Общие сбросы стилей */
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +22,17 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    overflow-y: auto; /* Добавили скролл, если контента много */
+    padding-right: 5px;
+}
+
+/* Стилизация скроллбара для левой панели */
+.sidebar-left::-webkit-scrollbar {
+    width: 4px;
+}
+.sidebar-left::-webkit-scrollbar-thumb {
+    background: #dadce0;
+    border-radius: 4px;
 }
 
 .card-section {
@@ -36,9 +46,19 @@ body {
 .card-section h2 {
     font-size: 18px;
     color: #202124;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     border-bottom: 2px solid #1a73e8;
     padding-bottom: 5px;
+}
+
+.skill-category {
+    margin-bottom: 15px;
+}
+
+.skill-category h3 {
+    font-size: 14px;
+    color: #1a73e8;
+    margin-bottom: 5px;
 }
 
 .skills-list, .contacts-list {
@@ -46,13 +66,16 @@ body {
 }
 
 .skills-list li {
-    padding: 6px 0;
+    padding: 4px 0;
     color: #4a4a4a;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.4;
 }
 
 .skills-list li::before {
-    content: "⚡ ";
+    content: "▪ ";
+    color: #34a853;
+    font-weight: bold;
 }
 
 .contacts-list li {
@@ -72,7 +95,7 @@ body {
 
 /* ЦЕНТРАЛЬНЫЙ БЛОК GOOGLE */
 .google-container {
-    width: 45%;
+    width: 46%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,7 +119,7 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    max-width: 580px;
+    max-width: 680px; /* Увеличили ширину строки под длинный текст */
     border: 1px solid #dfe1e5;
     padding: 12px 15px;
     border-radius: 24px;
@@ -113,9 +136,10 @@ body {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 15px; /* Чуть уменьшили размер, чтобы текст помещался */
     color: #202124;
     padding: 0 10px;
+    overflow-x: auto; /* Позволяет тексту двигаться, если он не влезает */
 }
 
 .search-icon, .mic-icon {
@@ -147,7 +171,7 @@ body {
     color: #202124;
 }
 
-/* ПРАВАЯ ПАНЕЛЬ (ТЕРМИНАЛ ТОП-УРОВНЯ) */
+/* ПРАВАЯ ПАНЕЛЬ (ТЕРМИНАЛ) */
 .sidebar-right {
     width: 25%;
     height: 85vh;
@@ -192,9 +216,9 @@ body {
 
 .terminal-body {
     padding: 15px;
-    color: #39ff14; /* Неоново-зеленый */
+    color: #39ff14;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 13px;
+    font-size: 12px;
     overflow-y: auto;
     flex: 1;
     line-height: 1.5;
@@ -203,16 +227,20 @@ body {
 .term-success { color: #58a6ff; }
 .term-warn { color: #d29922; }
 
-/* Адаптивность для небольших экранов */
-@media (max-width: 1024px) {
+/* Адаптивность */
+@media (max-width: 1100px) {
     body {
         flex-direction: column;
         overflow-y: auto;
         height: auto;
         gap: 40px;
+        padding: 40px 20px;
     }
     .sidebar-left, .google-container, .sidebar-right {
         width: 100%;
+        height: auto;
+    }
+    .sidebar-left {
         height: auto;
     }
 }
