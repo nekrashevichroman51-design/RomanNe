@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Роман Некрашевич | Senior Frontend Engineer & Web Developer</title>
-    <!-- Подключаем топовые шрифты для ИТ-индустрии -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Инлайн-стили уровня А: Гарантируют мгновенную загрузку без багов с кэшем -->
     <style>
         :root {
             --bg-deep: #030712;
@@ -32,12 +30,10 @@
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
-        /* Размытые неоновые сферы на фоне (Glow Effects) */
         .glow { position: absolute; width: 500px; height: 500px; border-radius: 50%; filter: blur(150px); z-index: -1; opacity: 0.15; }
         .glow--1 { top: -150px; right: -50px; background: var(--accent-indigo); }
         .glow--2 { top: 800px; left: -150px; background: var(--accent-cyan); }
 
-        /* Шапка сайта в стиле Glassmorphism */
         .header { position: sticky; top: 0; z-index: 1000; background: rgba(3, 7, 18, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-glow); }
         .header__container { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
         .header__logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px; }
@@ -46,7 +42,6 @@
         .header__link:hover { color: var(--text-pure); }
         .header__link--cta { background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan)); padding: 10px 20px; border-radius: 8px; color: white; }
 
-        /* Главный экран (Hero Section уровня А) */
         .hero { padding: 120px 0 80px 0; text-align: center; }
         .hero__badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 6px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; margin-bottom: 28px; }
         .hero__pulse { width: 8px; height: 8px; background-color: #34d399; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #34d399; }
@@ -55,21 +50,20 @@
         .hero__subtitle strong { color: white; }
         .hero__actions { display: flex; justify-content: center; gap: 16px; }
 
-        /* Кнопки с премиальной анимацией */
-        .btn { padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: inline-block; }
+        .btn { padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: inline-block; text-align: center; }
         .btn--accent { background: var(--accent-indigo); color: white; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25); }
         .btn--accent:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(99, 102, 241, 0.45); }
         .btn--blur { background: rgba(255, 255, 255, 0.03); color: white; border: 1px solid var(--border-glow); }
         .btn--blur:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-2px); }
 
-        /* Интерактивные премиум-карточки портфолио */
-        .projects { padding: 100px 0; }
+        .section-padding { padding: 90px 0; border-top: 1px solid var(--border-glow); }
         .section-tag { color: var(--accent-indigo); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px; text-align: center; }
         .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
         
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
         .card { background: var(--surface-glass); border: 1px solid var(--border-glow); padding: 40px; border-radius: 20px; position: relative; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .card:hover { transform: translateY(-6px); border-color: rgba(99, 102, 241, 0.3); background: rgba(255, 255, 255, 0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        
         .card__meta { font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
         .card__meta--emerald { color: var(--accent-emerald); }
         .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 12px; }
@@ -77,7 +71,14 @@
         .card__link { color: #fff; text-decoration: none; font-size: 0.95rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; }
         .card__link:hover { color: var(--accent-indigo); }
 
-        /* Подвал */
+        /* Оформление опыта работы и развернутых компетенций */
+        .experience-box { background: var(--surface-glass); border: 1px solid var(--border-glow); border-radius: 20px; padding: 40px; margin-top: 30px; }
+        .experience-box__header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; border-bottom: 1px solid var(--border-glow); padding-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+        .experience-box__title h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; color: #fff; }
+        .experience-box__title p { color: var(--accent-indigo); font-weight: 600; font-size: 0.95rem; margin-top: 2px; }
+        .experience-box__date { background: rgba(255,255,255,0.04); padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+        .experience-box__text { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
+
         .footer { padding-bottom: 100px; }
         .footer__card { background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, rgba(6, 182, 212, 0.03) 100%); border: 1px solid var(--border-glow); padding: 60px; border-radius: 24px; text-align: center; backdrop-filter: blur(12px); }
         .footer__card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 2.25rem; margin-bottom: 16px; }
@@ -91,9 +92,10 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .hero__title { font-size: 2.5rem; }
-            .hero__actions { flex-direction: column; }
-            .btn { width: 100%; text-align: center; }
+            .hero__actions { flex-direction: column; gap: 12px; }
+            .btn { width: 100%; }
             .footer__actions { flex-direction: column; width: 100%; }
+            .experience-box__header { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -106,18 +108,21 @@
             <div class="header__logo">Roman Nekrashevich<span>.dev</span></div>
             <nav class="header__nav">
                 <a href="#about" class="header__link">Инфо</a>
+                <a href="#skills" class="header__link">Стек</a>
                 <a href="#projects" class="header__link">Портфолио</a>
+                <a href="#experience" class="header__link">Опыт</a>
                 <a href="#contacts" class="header__link header__link--cta">Контакты</a>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- ГЛАВНЫЙ ЭКРАН -->
         <section id="about" class="hero">
             <div class="container">
                 <div class="hero__badge"><span class="hero__pulse"></span> Доступен для крупных ИТ-продуктов</div>
                 <h1 class="hero__title">Инженерия цифровых веб-интерфейсов</h1>
-                <p class="hero__subtitle">Я <strong>Роман Некрашевич</strong>. Разрабатываю высокопроизводительные адаптивные решения, объединяя передовой стек программирования, строгую бизнес-логику и безупречную семантику кодовой базы.</p>
+                <p class="hero__subtitle">Я <strong>Роман Некрашевич</strong>. Специализируюсь на создании высокопроизводительных адаптивных решений, объединяя передовой стек программирования, строгую бизнес-логику и безупречную семантику кодовой базы.</p>
                 <div class="hero__actions">
                     <a href="#projects" class="btn btn--accent">Смотреть кейсы</a>
                     <a href="#contacts" class="btn btn--blur">Обсудить проект</a>
@@ -125,19 +130,9 @@
             </div>
         </section>
 
-        <section id="projects" class="projects">
-            <div class="container">
-                <span class="section-tag">Case Studies</span>
-                <h2 class="section-title">Разработанные ИТ-решения</h2>
-                <div class="grid">
-                    
-                    <!-- КЕЙС 1: Промо-платформа Петруха -->
-                    <div class="card">
-                        <div class="card__meta card__meta--emerald">Commercial Concept / SPA</div>
-                        <h3>Многостраничный сайт «Петруха»</h3>
-                        <p>Высокотехнологичный промо-сайт пищевого эко-бренда. Внедрена бесшовная мгновенная навигация между каталогами, рецептами и инфо-блоками на чистом JavaScript, а также кастомная векторная SVG-графика и динамические счетчики.</p>
-                        <a href="https://github.io" class="card__link" target="_blank" rel="noopener noreferrer">Открыть живой сайт →</a>
-                    </div>
-                    
-                    <!-- КЕЙС 2: Планировщик Task Tracker -->
-                    <div class="card">
+        <!-- РАЗДЕЛ ТЕХНИЧЕСКИХ КОМПЕТЕНЦИЙ -->
+        <section id="skills" class="container section-padding">
+            <span class="section-tag">ENGINEERING</span>
+            <h2 class="section-title">Технические компетенции</h2>
+            <div class="grid">
+                <div class="card">
