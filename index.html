@@ -8,17 +8,28 @@
 </head>
 <body>
 
-    <!-- ЛЕВАЯ ПАНЕЛЬ: Навыки и контакты -->
+    <!-- ЛЕВАЯ ПАНЕЛЬ: Детальные навыки и контакты -->
     <aside class="sidebar-left">
         <div class="card-section">
-            <h2>Проф. Навыки</h2>
-            <ul class="skills-list">
-                <li>HTML5 & Semantic Web</li>
-                <li>CSS3 & Flexbox / Grid</li>
-                <li>JavaScript (ES6+)</li>
-                <li>Адаптивная верстка</li>
-                <li>Git & GitHub</li>
-            </ul>
+            <h2>Технические навыки</h2>
+            
+            <div class="skill-category">
+                <h3>Frontend Core</h3>
+                <ul class="skills-list">
+                    <li><strong>HTML5 / CSS3:</strong> Семантическая верстка, Flexbox, Grid Layout.</li>
+                    <li><strong>JavaScript (ES6+):</strong> Работа с DOM, промисы, асинхронные запросы (Fetch API).</li>
+                    <li><strong>Адаптивность:</strong> Mobile First, кроссбраузерность, анимации.</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Инструменты & Окружение</h3>
+                <ul class="skills-list">
+                    <li><strong>Системы контроля версий:</strong> Git, работа с удаленными репозиториями на GitHub.</li>
+                    <li><strong>Сборка & Пакеты:</strong> Базовый NPM, понимание Vite / Webpack.</li>
+                    <li><strong>Оптимизация:</strong> Валидация кода, минификация ресурсов, SEO-оптимизация.</li>
+                </ul>
+            </div>
         </div>
         
         <div class="card-section">
@@ -43,7 +54,7 @@
         
         <div class="search-box">
             <div class="search-icon">🔍</div>
-            <!-- В этот input скрипт будет автоматически вводить текст -->
+            <!-- Поле ввода скроллится вправо автоматически при наборе текста -->
             <input type="text" id="search-input" readonly>
             <div class="mic-icon">🎙️</div>
         </div>
@@ -63,9 +74,7 @@
                 <span class="dot green"></span>
                 <span class="terminal-title">roman_nekrashevich_core.sh</span>
             </div>
-            <div class="terminal-body" id="terminal-content">
-                <!-- Сюда JS будет выводить строки логов -->
-            </div>
+            <div class="terminal-body" id="terminal-content"></div>
         </div>
     </aside>
 
